@@ -2,11 +2,13 @@ const express = require('express');
 
 const router = require('./router/router');
 const sequelize = require('./config/config');
-const User = require("./models/User");
+const produtoRouter = require('./router/router2');
+
 const app = express();
 
 app.use(express.json());
 app.use('/api/user/', router);
+app.use('/api/produto/', produtoRouter);
 
 app.get('/healthcheck', (req, res) =>{
     return res.status(200).json({

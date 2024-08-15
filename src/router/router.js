@@ -2,7 +2,10 @@ const { Router } = require("express");
 const UserController = require("../controller/UserController");
 
 
+
 const router = Router();
+
+// Users
 
 router.post('/', (req, res) =>{
     UserController.create(req, res)
@@ -28,5 +31,7 @@ router.get('/:id', (req, res) =>{
     UserController.getOne(req, res)
 
 });
+
+
 
 module.exports = router;
