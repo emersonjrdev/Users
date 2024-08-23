@@ -2,12 +2,12 @@ const express = require('express');
 
 const router = require('./router/router');
 const sequelize = require('./config/config');
-const produtoRouter = require('./router/router2');
+const produtoRouter = require('./router/ProdutoRouter');
 
 const app = express();
 
 app.use(express.json());
-app.use('/api/user/', router);
+app.use('/api/user/', UserRouter);
 app.use('/api/produto/', produtoRouter);
 
 app.get('/healthcheck', (req, res) =>{
