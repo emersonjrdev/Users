@@ -1,34 +1,33 @@
-const express = require('express');
-const router = express.Router();
-const ProdutoController = require("../controller/ProdutoController");
+const { Router } = require('express');
+const routerProduct = Router();
+
+const productController = require('../controller/ProdutoController');
 const { validateProduct, validateProductId } = require('../middlewares/ValidateProduct');
 
-// Produtos
-
-router.post('/', validateProduct, (req, res) =>{
-    ProdutoController.create(req, res)
-
+routerProduct.post('/', validateProduct, (req,res) => {
+    productController.create(req,res)
 });
 
-router.get('/', validateProduct, validateProduct, (req, res) =>{
-    ProdutoController.getAll(req, res)
-
+routerProduct.get('/', validateProduct, validateProductId, (req,res) => {
+    productController.getAll(req,res);
 });
 
-router.delete('/:id', validateProductId, (req, res) =>{
-    ProdutoController.delete(req, res)
+// /api/users/:id => Isso é um modelo de (params)
 
+// api/users?id=3216 => Isto é uma (Query)
+
+// {body: {id: "3212"} } => (Body)
+
+routerProduct.delete('/:id', validateProductId, (req,res) => {
+    productController.delete(req,res);
 });
 
-router.put('/:id', validateProduct, validateProductId, (req, res) =>{
-    ProdutoController.update(req, res)
-
+routerProduct.put('/:id',  validateProduct, validateProductId,(req,res) => {
+    productController.update(req,res);
 });
 
-router.get('/:id', validateProductId, (req, res) =>{
-    ProdutoController.getOne(req, res)
-
+routerProduct.get('/:id', validateProductId, (req,res) => {
+    productController.getOne(req,res);
 });
 
-
-module.exports = router;
+module.exports = routerProduct;
