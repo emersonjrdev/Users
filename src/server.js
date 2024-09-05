@@ -3,6 +3,7 @@ require('dotenv').config();
 
 const routerProduct = require('./router/ProdutoRouter');
 const routerCliente = require('./router/ClienteRouter')
+const routerUpload = require('./router/UploadRouter')
 
 const routerUser = require('./router/UserRouter')
 const sequelize = require('./config/config');
@@ -17,6 +18,8 @@ app.use('/api/user', routerUser);
 app.use('/api/produto', routerProduct);
 
 app.use('/api/cliente', routerCliente);
+
+app.use('/api/image',  routerUpload);
 //Req -> A requisição, ou seja, o que recebe do servidor
 //Res -> O Response, o que enviamos ao servidor
 app.get('/healthcheck', (req,res) => {
