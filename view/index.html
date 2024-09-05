@@ -7,15 +7,22 @@
     <title>Upload imagens</title>
 </head>
 <body>
-    <h1>Upload de imagem</h1>
+    <style>
+        body{
+            background-color: gray;
+        };
+    </style>
+    <h1 style="text-align: center; border-bottom: 2px solid black; width: 400px; align-items: center; margin-left: 40%;">Upload de imagem</h1>
 
-    <form action="http://localhost:8080/api/image/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*" />
-        <button type="submit">Enviar</button>
-    </form>
-    
-    <h2>Imagens Salvas:</h2>
-    <ul id="image-list"></ul>
+    <div>
+        <form action="http://localhost:8080/api/image/upload" method="post" enctype="multipart/form-data" style="margin-left: 780px; margin-top: 100px;">
+            <input type="file" name="image" accept="image/*" />
+            <button type="submit">Enviar</button>
+        </form>
+        
+        <h2 style="text-align: center; margin-top: 200px;">Imagens Salvas:</h2>
+        <ul id="image-list"></ul>
+    </div>
 
 </body>
 <script>
